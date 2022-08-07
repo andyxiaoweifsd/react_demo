@@ -20,8 +20,8 @@ jobs:
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
         with: 
-          aws-access-key-id: AKIA2VDFLWRT3EJ5GOGP
-          aws-secret-access-key: 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
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
       
       - name: Copy files to the test website with the AWS CLI
