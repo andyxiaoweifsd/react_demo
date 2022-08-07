@@ -11,7 +11,7 @@ jobs:
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
         with: 
-          role-to-assume: arn:aws:iam::732504503399:user/test
+          # role-to-assume: arn:aws:iam::732504503399:user/test
           aws-access-key-id: AKIA2VDFLWRTZXALFY5B
           aws-secret-access-key: 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
           aws-region: us-east-2
