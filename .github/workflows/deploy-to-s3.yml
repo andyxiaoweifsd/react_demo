@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Configure AWS credentials from Test account
+      - name: Configure AWS credentials from Test account ${{ secrets.AWS_KEY }} --- ${{ secrets.AWS_SECRET }}
         uses: aws-actions/configure-aws-credentials@v1
         with: 
           role-to-assume: arn:aws:iam::732504503399:user/test
@@ -16,7 +16,7 @@ jobs:
           # aws-secret-access-key: ${{ secrets.AWS_SECRET }}
           aws-region: us-east-2
       
-      - name: Copy files to the test website with the AWS CLI
-        run: |
-          aws s3 sync . s3://my-xiaowei-hosted-content
+      # - name: Copy files to the test website with the AWS CLI
+      #   run: |
+      #     aws s3 sync . s3://my-xiaowei-hosted-content
 
