@@ -25,5 +25,5 @@ jobs:
           aws-region: us-east-2
       
       - name: Copy files to the test website with the AWS CLI
-        run: aws s3 sync ./build s3://my-xiaowei-hosted-content -delete
+        run: aws s3 sync ./build s3://my-xiaowei-hosted-content --delete
 
