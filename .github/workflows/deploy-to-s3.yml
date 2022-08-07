@@ -12,10 +12,10 @@ jobs:
         with: 
           persist-credentials: false
 
-      - name: Install and Build
-        run: | # 该步骤要运行的命令，这里就是部署react 的命令
-          npm install
-          npm run-script build
+      # - name: Install and Build
+      #   run: | # 该步骤要运行的命令，这里就是部署react 的命令
+      #     npm install
+      #     npm run-script build
 
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
