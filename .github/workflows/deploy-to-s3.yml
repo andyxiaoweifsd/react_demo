@@ -7,16 +7,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout # 步骤名称
+        uses: actions/checkout@v2
+        with: 
+          persist-credentials: false
+
+      - name: Install and Build
+        run: | # 该步骤要运行的命令，这里就是部署react 的命令
+          npm install
+          npm run-script build
 
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
         with: 
-          # role-to-assume: arn:aws:iam::732504503399:user/test
           aws-access-key-id: AKIA2VDFLWRTZXALFY5B
           aws-secret-access-key: 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
           aws-region: us-east-2
       
       - name: Copy files to the test website with the AWS CLI
-        run: |
-          aws s3 sync . s3://my-xiaowei-hosted-content
+        run: aws s3 sync ./build s3://my-xiaowei-hosted-content
 
