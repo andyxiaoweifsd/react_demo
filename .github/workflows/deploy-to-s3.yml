@@ -10,10 +10,10 @@ jobs:
       - name: Check out to the latest tag
         uses: actions/checkout@v2
 
-      - name: Npm Install
-        run: |
-          npm install
-          npm run-script build
+      # - name: Npm Install
+      #   run: |
+      #     npm install
+      #     npm run-script build
         # env: 
         #   NODE_ENV: production
       
@@ -25,5 +25,5 @@ jobs:
           aws-region: us-east-2
       
       - name: Copy dist to the s3
-        run: aws s3 sync ./build s3://my-xiaowei-hosted-content --delete
+        run: aws s3 sync ./src s3://my-xiaowei-hosted-content --delete
 
